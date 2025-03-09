@@ -5,10 +5,10 @@ import Layout from '../layouts/Layout';
 
 export const Offer = () => {
   const {data}= useDataContext();
-  const {topOffers}=data;
+  const {topOffers, bannerImage}=data;
   return (
     <Layout>
-      <Hero title={"offers"}/>
+      <Hero title={"offers"} banner={bannerImage}/>
       <div className=' container mx-auto px-6 my-16 md:px-12'>
         <SectionTitle title='Offers' />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

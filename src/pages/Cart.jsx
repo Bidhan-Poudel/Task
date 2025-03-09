@@ -6,7 +6,8 @@ import Layout from '../layouts/Layout';
 import { toast } from 'react-hot-toast';
 
 export const Cart = () => {
-    const { cart, setCart } = useDataContext();
+    const { cart, setCart, data } = useDataContext();
+    const bannerImage=data.bannerImage;
 
     const removeFromCart = (id) => {
         setCart((prev) => prev.filter((item) => item.id !== id));
@@ -15,7 +16,7 @@ export const Cart = () => {
 
     return (
         <Layout>
-            <Hero title={"Cart"} />
+            <Hero title={"Cart"} banner={bannerImage} />
             <div className='mt-16'></div>
             <div className="container mx-auto px-12 py-8">
                 <SectionTitle title="Cart" />

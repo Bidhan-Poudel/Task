@@ -5,10 +5,10 @@ import { useDataContext } from '../context/DataContext'
 
 export const Events = () => {
   const { data } = useDataContext();
-  const { events } = data;
+  const { events, bannerImage } = data;
   return (
     <Layout>
-      <Hero title={"events"} />
+      <Hero title={"events"} banner={bannerImage} />
       <div className=' container my-16 mx-auto w-full px-12 md:px-8 lg:px-16'>
         <SectionTitle title='Products' />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
