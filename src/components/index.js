@@ -1,4 +1,4 @@
-export * from './Header';
+export * from '../layouts/Header';
 export * from './FeaturedPeople';
 export * from './UserProfile';
 export * from './Footer';

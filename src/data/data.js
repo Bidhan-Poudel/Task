@@ -6,6 +6,8 @@ export const people = [
     
 ];
 
+export const bannerImage="https://static.vecteezy.com/system/resources/thumbnails/003/692/287/small/big-sale-discount-promotion-banner-template-with-blank-product-podium-scene-graphic-free-vector.jpg"
+export const promotionalBannerImage="https://www.shutterstock.com/image-vector/flash-sale-promotional-labels-templates-600nw-2373695369.jpg";
 export const platforms = [
     { id: 1, name: "Platform A", logo: "https://via.placeholder.com/80" },
     { id: 2, name: "Platform B", logo: "https://via.placeholder.com/80" },

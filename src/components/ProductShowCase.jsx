@@ -4,13 +4,12 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { productShowcase } from '../data/data';
 import { SectionTitle } from './shared/SectionTitle';
 
-export const ProductShowCase = () => {
+export const ProductShowCase = ({products}) => {
   return (
     <section className="container mx-auto px-12 pt-16">
-      <SectionTitle title='Top Product of the Month' />
+      <SectionTitle title='Top Product of the Month' link={"/products"} />
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={16}
@@ -21,7 +20,7 @@ export const ProductShowCase = () => {
         }}
 
       >
-        {productShowcase.map((offer) => (
+        {products.map((offer) => (
           <SwiperSlide key={offer.id}>
 
             <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm ">

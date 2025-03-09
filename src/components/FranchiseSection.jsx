@@ -3,14 +3,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination"; import { franchises } from '../data/data'
+import "swiper/css/pagination";
 import { SectionTitle } from './shared/SectionTitle';
 
-export const FranchiseSection = () => {
+export const FranchiseSection = ({franchises}) => {
   return (
     <section className="container mx-auto px-12 pt-16">
       {/* <h2 className="text-3xl font-bold mb-8 text-center">Top Franchise of the Month</h2> */}
-      <SectionTitle title='Top Franchise of the Month' />
+      <SectionTitle title='Top Franchise of the Month' link={"/franchise"} />
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={16}
