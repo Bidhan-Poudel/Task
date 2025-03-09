@@ -3,7 +3,7 @@ import { SectionTitle } from './shared/SectionTitle'
 
 export const FeaturedPeople = ({ peoples, platforms }) => {
   return (
-    <section className="container mx-auto px-6 pt-16 grid xs:grid-cols-6  md:grid-cols-2 gap-6 md:px-12">
+    <section className="container mx-auto px-6 pt-16 grid lg:grid-cols-2 gap-6 md:px-12">
       {/* People Section */}
       <div className="mb-16 lg:mb-0">
         <SectionTitle title='People' />

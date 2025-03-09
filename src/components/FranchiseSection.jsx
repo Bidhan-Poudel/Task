@@ -8,9 +8,9 @@ import { SectionTitle } from './shared/SectionTitle';
 
 export const FranchiseSection = ({franchises}) => {
   return (
-    <section className="container mx-auto px-12 pt-16">
+    <section className="container mx-auto px-6 pt-16 md:px-12">
       {/* <h2 className="text-3xl font-bold mb-8 text-center">Top Franchise of the Month</h2> */}
-      <SectionTitle title='Top Franchise of the Month' link={"/franchise"} />
+      <SectionTitle title='Top Franchise of the Month'  />
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={16}

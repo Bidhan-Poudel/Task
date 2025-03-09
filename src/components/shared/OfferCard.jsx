@@ -1,14 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDataContext } from '../../context/DataContext';
+import { toast } from 'react-hot-toast';
 
 export const OfferCard = ({ offer }) => {
-    const {setCart}= useDataContext();
+
+    const { cart, setCart } = useDataContext();
+
     const addToCart = () => {
-        setCart((prevCart) => [...prevCart, offer]);
+        const isInCart = cart.some(item => item.id === offer.id);
+
+        if (isInCart) {
+            setCart((prevCart) => prevCart.filter(item => item.id !== offer.id));
+            toast(`${offer.name} removed from cart!`, {
+                icon: '❌',
+                style: {
+                    background: '#f44336',
+                    color: '#fff',
+                },
+            });
+        } else {
+            setCart((prevCart) => [...prevCart, offer]);
+            toast.success(`${offer.name} added to cart!`);
+        }
     };
+
     return (
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out overflow-hidden">
+        <div className="w-full bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out overflow-hidden">
             <Link to="#" className='h-40 overflow-hidden'>
                 <img
                     className="rounded-t-lg w-full h-40 object-cover transform transition-transform duration-300 ease-in-out hover:scale-105"
@@ -24,7 +42,7 @@ export const OfferCard = ({ offer }) => {
                     <p className="text-sm text-gray-500 mt-2">{offer.description}</p>
                 </a>
                 <div className="flex items-center justify-between mt-5">
-                    <span className="text-lg font-bold text-primary">{offer.price}</span>
+                    <span className="text-lg font-bold text-primary">${offer.price}</span>
                     <div className="flex items-center">
                         <div className="flex items-center space-x-1 rtl:space-x-reverse">
                             <svg className="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
@@ -34,8 +52,11 @@ export const OfferCard = ({ offer }) => {
                         <span className="bg-green-100 text-primary text-xs font-semibold px-2.5 py-0.5 rounded-sm">5.0</span>
                     </div>
                 </div>
-                <button className="w-full bg-primary text-white font-semibold mt-4 py-2 px-4 rounded-lg hover:bg-green-700 transition-colors duration-300 cursor-pointer" onClick={addToCart}>
-                    Add to Cart
+                <button
+                    className="w-full bg-primary text-white font-semibold mt-4 py-2 px-4 rounded-lg hover:bg-green-700 transition-colors duration-300 cursor-pointer"
+                    onClick={addToCart}
+                >
+                    {cart.some(item => item.id === offer.id) ? 'Remove from Cart' : 'Add to Cart'}
                 </button>
             </div>
         </div>

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { NewsLetter } from '../components/NewsLetter';
 
 export const Footer = () => {
   return (
     <footer className="bg-gray-100 py-12">
-      <div className="container mx-auto px-12">
+      <div className=" container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Quick Links */}
           <div>
@@ -18,21 +19,10 @@ export const Footer = () => {
           </div>
 
           {/* Subscription Form */}
+
           <div>
             <h3 className="text-xl font-bold mb-4">Subscribe to Our Newsletter</h3>
-            <form className="flex flex-col space-y-4">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="p-2 rounded text-gray-800 bg-white color-primary"
-              />
-              <button
-                type="submit"
-                className="bg-primary text-white p-2 rounded hover:bg-green-600 transition duration-300"
-              >
-                Subscribe
-              </button>
-            </form>
+            <NewsLetter />
           </div>
 
           {/* Social Media Icons */}

@@ -4,12 +4,13 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import { FreeMode, Autoplay } from "swiper/modules";
 import { SectionTitle } from './shared/SectionTitle';
+import { UserProfileCard } from './shared';
 
 export const TopMemberLuckyDraw = ({ members, luckyDrawWinners }) => {
   return (
-    <section className="container mx-auto px-12 my-32 py-16  bg-primary text-white" >
+    <section className="container mx-auto px-6 pt-16 my-32 py-16 bg-primary text-white md:px-12" >
       {/* Top Members */}
-      <SectionTitle title='Top Members of the Month' link={"/members"}/>
+      <SectionTitle title='Top Members of the Month' link={"/members"} />
       <Swiper
         spaceBetween={20}
         slidesPerView={2}
@@ -23,12 +24,8 @@ export const TopMemberLuckyDraw = ({ members, luckyDrawWinners }) => {
       >
         {members.map((member) => (
           <SwiperSlide key={member.id} className="text-center">
-            <img
-              src={member.img}
-              alt={member.name}
-              className="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-lg"
-            />
-            <p className="mt-4 text-lg font-medium">{member.name}</p>
+            <UserProfileCard user={member} />
+
           </SwiperSlide>
         ))}
       </Swiper>
@@ -50,12 +47,7 @@ export const TopMemberLuckyDraw = ({ members, luckyDrawWinners }) => {
         >
           {luckyDrawWinners.map((winner) => (
             <SwiperSlide key={winner.id} className="text-center">
-              <img
-                src={winner.img}
-                alt={winner.name}
-                className="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-lg"
-              />
-              <p className="mt-4 text-lg font-medium">{winner.name}</p>
+              <UserProfileCard user={winner} />
             </SwiperSlide>
           ))}
         </Swiper>

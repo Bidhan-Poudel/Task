@@ -10,7 +10,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 
 export const TopOffers = ({ offers, targetRef }) => {
   return (
-    <section className="container mx-auto px-12 pt-16" ref={targetRef}>
+    <section className="container mx-auto px-6 pt-16 md:px-12" ref={targetRef}>
       <SectionTitle title='Top Offers of the Month' link={"/offers"} />
       <Swiper
         modules={[Navigation, Pagination]}

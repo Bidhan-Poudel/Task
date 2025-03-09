@@ -1,27 +1,30 @@
 import { Link } from "react-router-dom";
+import { NewsLetter } from "../components";
 
 export const Header = () => {
   return (
-    <header className="bg-white shadow-md md:px-12 sm:px-6 py-4">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center py-4">
+    <header className="bg-white shadow-md md:px-12 sm:px-6">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center pt-4">
         {/* Logo */}
-        <h1 className="text-2xl text-primary font-bold">Your Logo Here</h1>
+        <h1 className="text-2xl text-primary font-bold">
+          <img src="/images/logo.jpg" alt="Logo" className="w-20" />
+        </h1>
 
         {/* Navigation */}
         <nav className="mt-4 md:mt-0">
-          <ul className="flex space-x-4 text-gray-700">
+          <ul className="flex space-x-4 md:space-x-8 text-gray-700">
             <li>
               <Link to="/" className="hover:text-primary transition">
                 Showcase
               </Link>
             </li>
             <li>
-              <Link to="/product" className="hover:text-primary transition">
+              <Link to="/products" className="hover:text-primary transition">
                 Product
               </Link>
             </li>
             <li>
-              <Link to="/offer" className="hover:text-primary transition">
+              <Link to="/offers" className="hover:text-primary transition">
                 Offer
               </Link>
             </li>
@@ -34,7 +37,8 @@ export const Header = () => {
         </nav>
 
         {/* Newsletter Subscription */}
-        <div className="mt-4 md:mt-0">
+        <NewsLetter />
+        {/* <div className="mt-4 md:mt-0">
           <form className="flex">
             <input
               type="email"
@@ -48,7 +52,7 @@ export const Header = () => {
               Subscribe
             </button>
           </form>
-        </div>
+        </div> */}
       </div>
     </header>
   );
